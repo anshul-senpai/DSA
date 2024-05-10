@@ -46,29 +46,29 @@ vector<int> bfsOfGraph(int V, vector<int> adj[]) {
     vector<int>vis(V,-1);
     queue<int>q;
     
-    // for(int i=0;i<V;i++){
-    //     if(vis[i]==-1){
-    q.push(0);
-    ans.push_back(0);
-    vis[0] = 1;
-    while(!q.empty()){
-        int x = q.size();
-        
-        for(int j=0;j<x;j++){
-            int nodeVal = q.front();
-            q.pop();
+    for(int i=0;i<V;i++){
+        if(vis[i]==-1){
+        q.push(0);
+        ans.push_back(0);
+        vis[0] = 1;
+        while(!q.empty()){
+            int x = q.size();
             
-            for(int x:adj[nodeVal]){
-                if(vis[x]==-1){
-                    q.push(x);
-                    ans.push_back(x);
-                    vis[x] = 1;
+            for(int j=0;j<x;j++){
+                int nodeVal = q.front();
+                q.pop();
+                
+                for(int x:adj[nodeVal]){
+                    if(vis[x]==-1){
+                        q.push(x);
+                        ans.push_back(x);
+                        vis[x] = 1;
+                    }
                 }
             }
         }
+        }
     }
-    //     }
-    // }
     
     return ans;
 }
