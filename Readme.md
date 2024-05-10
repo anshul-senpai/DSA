@@ -14,6 +14,7 @@ Examples and guidelines on how to use your project.
 ```python
 def hello_world():
     print("Hello, world!")
+```
 
 ![Screenshot](/path/to/screenshot.png)
 
