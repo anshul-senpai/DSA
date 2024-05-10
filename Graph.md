@@ -73,3 +73,63 @@ vector<int> bfsOfGraph(int V, vector<int> adj[]) {
     return ans;
 }
 ```
+
+- `Time Complexity:` `O(N) + O(2E)`, Where N = Nodes, 2E is for total degrees as we traverse all adjacent nodes.
+- `O(N) + O(E)` for directed Graph.
+- `Space Complextity:` `O(N)`
+
+### DFS on directed/undirected Graph
+
+#### DFS from 0 to its connected nodes.
+
+```c++
+void dfs(int i,vector<int>&ans,vector<int>&vis,vector<int>adj[]){
+    vis[i] = 1;
+    ans.push_back(i);
+    
+    for(int x:adj[i]){
+        if(vis[x]==-1){
+            dfs(x,ans,vis,adj);
+        }
+    }
+}
+vector<int> dfsOfGraph(int V, vector<int> adj[]) {
+    vector<int>ans;
+    vector<int>vis(V,-1);
+
+    dfs(0,ans,vis,adj);
+        
+    return ans;
+}
+```
+
+#### DFS from 0 to all the nodes (disconnected also).
+
+```c++
+void dfs(int i,vector<int>&ans,vector<int>&vis,vector<int>adj[]){
+    vis[i] = 1;
+    ans.push_back(i);
+    
+    for(int x:adj[i]){
+        if(vis[x]==-1){
+            dfs(x,ans,vis,adj);
+        }
+    }
+}
+vector<int> dfsOfGraph(int V, vector<int> adj[]) {
+    vector<int>ans;
+    vector<int>vis(V,-1);
+    
+    for(int i=0;i<V;i++){
+        if(vis[i]==-1){
+            dfs(i,ans,vis,adj);
+        }
+    }
+    
+    return ans;
+}
+```
+
+- `Time Complexity:` `O(N) + O(2E)`, Where N = Nodes, 2E is for total degrees as we traverse all adjacent nodes.
+- `O(N) + O(E)` for directed Graph.
+- `Space Complextity:` `O(N)`
