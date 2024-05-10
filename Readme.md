@@ -8,7 +8,9 @@ Instructions on how to install your project.
 Examples and guidelines on how to use your project.
 
 **Bold Text**
+
 *Italic Text*
+
 `Code Blocks`
 
 ```python
